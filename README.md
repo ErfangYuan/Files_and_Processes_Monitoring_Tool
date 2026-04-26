@@ -1,7 +1,11 @@
 **CSCB09 Winter 2026 Project: System-Wide FD Tables**
+
 **Author: Erfang Yuan**
+
 **Date: March 12, 2026**
+
 **Release/Version: N/A**
+
 
 **Introduction:**
     This program receives several flagged arguments representing different system scopes, as well as an optional positional argument (representing a specific PID), and outputs a File Descriptor table (including index, process ID, file descriptor, file name, and Inode number) according to the inputted scope. It also outputs a summary table, FD table filtered by threshold, and text/binary files according to specific arguments.
@@ -394,30 +398,30 @@ some files omitted
         11356 compositeTable.txt
     </div>
 
-**Analysis:**
-<div style="padding-left: 20px;">
+    **Analysis:**
+    <div style="padding-left: 20px;">
 
-**Experiment Condition:**
+    **Experiment Condition:**
 
-    Output Type | Mean Time(s) | Std Dev(s) | Mean Size(bytes) | Std Dev(bytes)
-    TXT         0.0142          0.0011          2996            0
-    Binary      0.0144          0.0015          2996            0
+        Output Type | Mean Time(s) | Std Dev(s) | Mean Size(bytes) | Std Dev(bytes)
+        TXT         0.0142          0.0011          2996            0
+        Binary      0.0144          0.0015          2996            0
 
-**Control Condition:**
+    **Control Condition:**
 
-    Output Type | Mean Time(s) | Std Dev(s) | Mean Size(bytes) | Std Dev(bytes)
-    TXT         0.0144          0.0009          11356           0
-    Binary      0.0156          0.0042          11356           0
+        Output Type | Mean Time(s) | Std Dev(s) | Mean Size(bytes) | Std Dev(bytes)
+        TXT         0.0144          0.0009          11356           0
+        Binary      0.0156          0.0042          11356           0
 
-The experiment results show that the text and binary output files have identical file sizes in both conditions. This is because the program stores all file and process information as big character buffer (i.e. a long string), and so it writes the buffer with exactly the same ASCII value for each character into both files, and the binary output does not store structured binary data but simply writes the formatted ASCII byte stream.
+    The experiment results show that the text and binary output files have identical file sizes in both conditions. This is because the program stores all file and process information as big character buffer (i.e. a long string), and so it writes the buffer with exactly the same ASCII value for each character into both files, and the binary output does not store structured binary data but simply writes the formatted ASCII byte stream.
 
-The execution times between text and binary outputs are also very similar. The mean differences are on the order of 0.0002–0.0012 seconds.
+    The execution times between text and binary outputs are also very similar. The mean differences are on the order of 0.0002–0.0012 seconds.
 
-However, within larger byte streams, changes in individual files (outliers) may lead to significant changes in execution time, resulting in a larger standard deviation of the Control Condition. Due to the low sample size, we are unable to determine whether this gap is significant.
-</div>
+    However, within larger byte streams, changes in individual files (outliers) may lead to significant changes in execution time, resulting in a larger standard deviation of the Control Condition. Due to the low sample size, we are unable to determine whether this gap is significant.
+    </div>
 
-**Conclusion:**
-    This experiment demonstrates that binary files and txt files store the same ASCII byte stream, so the space cost of I/O is consistent, and the time cost should also be of similar magnitude. This is because the writing process of this buffer only depends on different modes ("w" or "wb") of the same I/O operation (fwrite). (See more details in the Composite Table Sub-Module of Show Table Module under the Implementation Section as well as the program code.)
+    **Conclusion:**
+        This experiment demonstrates that binary files and txt files store the same ASCII byte stream, so the space cost of I/O is consistent, and the time cost should also be of similar magnitude. This is because the writing process of this buffer only depends on different modes ("w" or "wb") of the same I/O operation (fwrite). (See more details in the Composite Table Sub-Module of Show Table Module under the Implementation Section as well as the program code.)
 
 
 **Test Cases:**
