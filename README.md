@@ -56,7 +56,7 @@ such as “502606” to represent the specific process (PID) to view. This input
 
 **Modules:**
 **1. Show Table Module:**
-<div style="padding-left: 20px;">
+<div style="padding-left: 40px;">
 
 **1.1 Composite Table Sub-Module:** 
 This sub-module first determines the arguments controllers (special processe, composite table, text output, and binary output), and then reads all true controllers’ and all information from the local copy of FD information summary. Then, according to the auxiliary printing function, it prints line by line into a buffer at the predetermined position; Finally, based on the output controllers, it decides which outputs should be written into from the buffer.
@@ -148,7 +148,7 @@ The information presented by the monitoring tool should be directed to STDOUT an
     then the default output is to print the composite table of all processes (since no specific processes inputted):
 
 <div align="center">
-<img src="res\graphs\expected_output.1.1.png" width="800" height="450">
+<img src="res\graphs\expected_output.1.1.png" width="800" height="600">
 </div>
 
 ...
@@ -158,7 +158,7 @@ some files omitted
 ...
 
 <div align="center">
-<img src="res\graphs\expected_output.1.2.png" width="800" height="500">
+<img src="res\graphs\expected_output.1.2.png" width="800" height="600">
 </div>
 
 2. If input includes positional arguments only, e.g.
@@ -171,7 +171,7 @@ some files omitted
     in this case the default behaviour will be applied on the PID (i.e. positional argument) you specified, so the composite table for this specific process will be printed:
 
 <div align="center">
-<img src="res\graphs\expected_output.2.png" width="400" height="300">
+<img src="res\graphs\expected_output.2.png" width="800" height="600">
 </div>
 
 3. If input includes mixed positional argument and flagged arguments, e.g.
@@ -220,12 +220,12 @@ some files omitted
 
 
     **Result:**
-    <div style="padding-left: 20px;">
+    <div style="padding-left: 40px;">
         Experiment Condition:
-    <div style="padding-left: 20px;">
-            
-    Timing:
+    </div>
 
+    <div style="padding-left: 60px;">
+        Timing:
 
         1.  time ./showFDtables 502606 --composite --output_TXT
 
@@ -267,9 +267,10 @@ some files omitted
         time ./showFDtables 502606 --composite --output_binary
 
         real 0m0.014s
+    </div>
 
-<div style="padding-left: 80px;">
-    Size:
+    <div style="padding-left: 60px;">
+        Size:
 
         1.  ./showFDtables 502606 --composite --output_TXT --output_binary
                     
@@ -305,92 +306,93 @@ some files omitted
 
         2996 compositeTable.bin
         2996 compositeTable.txt
-</div>
+    </div>
 
+    <div style="padding-left: 40px;">
+        Control Condition:
+    </div>
 
-<div style="padding-left: 40px;">
-Control Condition:
-<div style="padding-left: 40px;">
-Timing:
+    <div style="padding-left: 60px;">
+        Timing:
 
-    1.  time ./showFDtables --composite --output_TXT
+        1.  time ./showFDtables --composite --output_TXT
 
-    real 0m0.016s
+        real 0m0.016s
 
-    time ./showFDtables --composite --output_binary
+        time ./showFDtables --composite --output_binary
 
-    real 0m0.013s
+        real 0m0.013s
 
-    2.  time ./showFDtables --composite --output_TXT
+        2.  time ./showFDtables --composite --output_TXT
 
-    real 0m0.014s
+        real 0m0.014s
 
-    time ./showFDtables --composite --output_binary
+        time ./showFDtables --composite --output_binary
 
-    real 0m0.015s
+        real 0m0.015s
 
-    3.  time ./showFDtables --composite --output_TXT
+        3.  time ./showFDtables --composite --output_TXT
 
-    real 0m0.014s
+        real 0m0.014s
 
-    time ./showFDtables --composite --output_binary
+        time ./showFDtables --composite --output_binary
 
-    real 0m0.013s
+        real 0m0.013s
 
-    4.  time ./showFDtables --composite --output_TXT
+        4.  time ./showFDtables --composite --output_TXT
 
-    real 0m0.014s
+        real 0m0.014s
 
-    time ./showFDtables --composite --output_binary
+        time ./showFDtables --composite --output_binary
 
-    real 0m0.023s
+        real 0m0.023s
 
-    5.  time ./showFDtables --composite --output_TXT
+        5.  time ./showFDtables --composite --output_TXT
 
-    real 0m0.014s
-                    
-    time ./showFDtables --composite --output_binary
-                    
-    real 0m0.014s
+        real 0m0.014s
+                        
+        time ./showFDtables --composite --output_binary
+                        
+        real 0m0.014s
+    </div>
 
+    <div style="padding-left: 60px;">
+        Size:
 
-Size:
+        1. ./showFDtables --composite --output_TXT --output_binary
 
-    1. ./showFDtables --composite --output_TXT --output_binary
+        du -b compositeTable.*
 
-    du -b compositeTable.*
+        11356 compositeTable.bin
+        11356 compositeTable.txt
 
-    11356 compositeTable.bin
-    11356 compositeTable.txt
+        2.  ./showFDtables --composite --output_TXT --output_binary
 
-    2.  ./showFDtables --composite --output_TXT --output_binary
+        du -b compositeTable.*
 
-    du -b compositeTable.*
+        11356 compositeTable.bin
+        11356 compositeTable.txt
 
-    11356 compositeTable.bin
-    11356 compositeTable.txt
+        3.  ./showFDtables --composite --output_TXT --output_binary
 
-    3.  ./showFDtables --composite --output_TXT --output_binary
+        du -b compositeTable.*
 
-    du -b compositeTable.*
+        11356 compositeTable.bin
+        11356 compositeTable.txt
 
-    11356 compositeTable.bin
-    11356 compositeTable.txt
+        4.  ./showFDtables --composite --output_TXT --output_binary
 
-    4.  ./showFDtables --composite --output_TXT --output_binary
+        du -b compositeTable.*
 
-    du -b compositeTable.*
+        11356 compositeTable.bin
+        11356 compositeTable.txt
 
-    11356 compositeTable.bin
-    11356 compositeTable.txt
+        5.  ./showFDtables --composite --output_TXT --output_binary
 
-    5.  ./showFDtables --composite --output_TXT --output_binary
-
-    du -b compositeTable.*
-    11356 compositeTable.bin
-    11356 compositeTable.txt
-
-</div>
+        du -b compositeTable.*
+        11356 compositeTable.bin
+        11356 compositeTable.txt
+    </div>
 
 **Analysis:**
 <div style="padding-left: 20px;">
@@ -418,11 +420,12 @@ However, within larger byte streams, changes in individual files (outliers) may 
     This experiment demonstrates that binary files and txt files store the same ASCII byte stream, so the space cost of I/O is consistent, and the time cost should also be of similar magnitude. This is because the writing process of this buffer only depends on different modes ("w" or "wb") of the same I/O operation (fwrite). (See more details in the Composite Table Sub-Module of Show Table Module under the Implementation Section as well as the program code.)
 
 
-Test Cases:
+**Test Cases:**
     For basic tests, like testing the default behaviour, positional arguments only, flagged arguments only, mixed positional arguments and flagged arguments, please refer to Expected Output Section.
 
 1. Edge Cases (Misuse):
 <div style="padding-left: 40px;">
+
 Case 1.1:
     If you made a typo so that input an invalid argument, a prompt will be shown and no tables will be shown:
 
