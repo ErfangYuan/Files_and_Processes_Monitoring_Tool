@@ -147,11 +147,11 @@ You should be expected to see:
 **Expected Output:**
     Use the command:
 
-    ./showFDtables
+        ./showFDtables
 
 to open the executable file to view the default behaviour, and use
 
-    ./showFDtables [Specific PID] [--per-process] [--systemWide] [--Vnode] [--composite] [--summary] [--threshold=X] [--output_TXT] [--output_binary]
+        ./showFDtables [Specific PID] [--per-process] [--systemWide] [--Vnode] [--composite] [--summary] [--threshold=X] [--output_TXT] [--output_binary]
 
 to test with positional arguments and/or flagged arguments.
 
@@ -163,20 +163,18 @@ The information presented by the monitoring tool should be directed to STDOUT an
     ./showFDtables 
     ```
     then the default output is to print the composite table of all processes (since no specific processes inputted):
+    
+    <div align="center"><img src="res\graphs\expected_output.1.1.png" width="800" height="600"></div>
 
-<div align="center">
-<img src="res\graphs\expected_output.1.1.png" width="800" height="600">
-</div>
+    ...
 
-...
+    some files omitted
 
-some files omitted
+    ...
 
-...
-
-<div align="center">
-<img src="res\graphs\expected_output.1.2.png" width="800" height="600">
-</div>
+    <div align="center">
+    <img src="res\graphs\expected_output.1.2.png" width="800" height="600">
+    </div>
 
 2. If input includes positional arguments only, e.g.
 
@@ -187,9 +185,9 @@ some files omitted
 
     in this case the default behaviour will be applied on the PID (i.e. positional argument) you specified, so the composite table for this specific process will be printed:
 
-<div align="center">
-<img src="res\graphs\expected_output.2.png" width="800" height="600">
-</div>
+    <div align="center">
+    <img src="res\graphs\expected_output.2.png" width="800" height="600">
+    </div>
 
 3. If input includes mixed positional argument and flagged arguments, e.g.
 
@@ -198,7 +196,8 @@ some files omitted
     ```
 
     with the no process specified, then the composite table will be shown:
-        Note this is equivalent to the default behaviour, so please refer to Expected Output Case 1.
+        
+    Note this is equivalent to the default behaviour, so please refer to Expected Output Case 1.
 
 4. If input includes mixed positional argument and flagged arguments, e.g.
 
@@ -208,9 +207,9 @@ some files omitted
 
     with the same process specified from Expected Output Case 2, only the Vnode table will be shown:
 
-<div align="center">
-<img src="res\graphs\expected_output.4.png" width="800" height="500">
-</div>
+    <div align="center">
+    <img src="res\graphs\expected_output.4.png" width="800" height="600">
+    </div>
 
 5. If you want to see the output of tables (note this program only supports you to output the composite for either the specific process or all processes in text/binary formats), you MUST include --composite as one of the flagged argument and --output_TXT and/or --output_binary as the output controller:
 
@@ -244,7 +243,8 @@ some files omitted
     <div style="padding-left: 60px;">
         Timing:
 
-        1.  time ./showFDtables 502606 --composite --output_TXT
+        1.  
+        time ./showFDtables 502606 --composite --output_TXT
 
         real 0m0.014s
 
@@ -252,7 +252,8 @@ some files omitted
 
         real 0m0.014s
 
-        2.  time ./showFDtables 502606 --composite --output_TXT
+        2.  
+        time ./showFDtables 502606 --composite --output_TXT
 
         real 0m0.014s
                 
@@ -260,8 +261,8 @@ some files omitted
 
         real 0m0.014s
 
-        3.  time ./showFDtables 502606 --composite --output_TXT
-
+        3.  
+        time ./showFDtables 502606 --composite --output_TXT
 
         real 0m0.013s
 
@@ -269,7 +270,8 @@ some files omitted
 
         real 0m0.013s
 
-        4.  time ./showFDtables 502606 --composite --output_TXT
+        4.  
+        time ./showFDtables 502606 --composite --output_TXT
 
         real 0m0.016s
                     
@@ -277,7 +279,8 @@ some files omitted
 
         real 0m0.017s
 
-        5.  time ./showFDtables 502606 --composite --output_TXT
+        5.  
+        time ./showFDtables 502606 --composite --output_TXT
 
         real 0m0.014s
 
@@ -289,35 +292,40 @@ some files omitted
     <div style="padding-left: 60px;">
         Size:
 
-        1.  ./showFDtables 502606 --composite --output_TXT --output_binary
+        1.  
+        ./showFDtables 502606 --composite --output_TXT --output_binary
                     
         du -b compositeTable.*
 
         2996 compositeTable.bin
         2996 compositeTable.txt
 
-        2.  ./showFDtables 502606 --composite --output_TXT --output_binary
+        2.  
+        ./showFDtables 502606 --composite --output_TXT --output_binary
 
         du -b compositeTable.*
 
         2996 compositeTable.bin
         2996 compositeTable.txt
 
-        3.  ./showFDtables 502606 --composite --output_TXT --output_binary
+        3.  
+        ./showFDtables 502606 --composite --output_TXT --output_binary
 
         du -b compositeTable.*
 
         2996 compositeTable.bin
         2996 compositeTable.txt
 
-        4.  ./showFDtables 502606 --composite --output_TXT --output_binary
+        4.  
+        ./showFDtables 502606 --composite --output_TXT --output_binary
 
         du -b compositeTable.*
 
         2996 compositeTable.bin
         2996 compositeTable.txt
 
-        5.  ./showFDtables 502606 --composite --output_TXT --output_binary
+        5.  
+        ./showFDtables 502606 --composite --output_TXT --output_binary
 
         du -b compositeTable.*
 
@@ -332,7 +340,8 @@ some files omitted
     <div style="padding-left: 60px;">
         Timing:
 
-        1.  time ./showFDtables --composite --output_TXT
+        1.  
+        time ./showFDtables --composite --output_TXT
 
         real 0m0.016s
 
@@ -340,7 +349,8 @@ some files omitted
 
         real 0m0.013s
 
-        2.  time ./showFDtables --composite --output_TXT
+        2.  
+        time ./showFDtables --composite --output_TXT
 
         real 0m0.014s
 
@@ -348,7 +358,8 @@ some files omitted
 
         real 0m0.015s
 
-        3.  time ./showFDtables --composite --output_TXT
+        3.  
+        time ./showFDtables --composite --output_TXT
 
         real 0m0.014s
 
@@ -356,7 +367,8 @@ some files omitted
 
         real 0m0.013s
 
-        4.  time ./showFDtables --composite --output_TXT
+        4.  
+        time ./showFDtables --composite --output_TXT
 
         real 0m0.014s
 
@@ -364,7 +376,8 @@ some files omitted
 
         real 0m0.023s
 
-        5.  time ./showFDtables --composite --output_TXT
+        5.  
+        time ./showFDtables --composite --output_TXT
 
         real 0m0.014s
                         
@@ -376,35 +389,40 @@ some files omitted
     <div style="padding-left: 60px;">
         Size:
 
-        1. ./showFDtables --composite --output_TXT --output_binary
+        1. 
+        ./showFDtables --composite --output_TXT --output_binary
 
         du -b compositeTable.*
 
         11356 compositeTable.bin
         11356 compositeTable.txt
 
-        2.  ./showFDtables --composite --output_TXT --output_binary
+        2.  
+        ./showFDtables --composite --output_TXT --output_binary
 
         du -b compositeTable.*
 
         11356 compositeTable.bin
         11356 compositeTable.txt
 
-        3.  ./showFDtables --composite --output_TXT --output_binary
+        3. 
+        ./showFDtables --composite --output_TXT --output_binary
 
         du -b compositeTable.*
 
         11356 compositeTable.bin
         11356 compositeTable.txt
 
-        4.  ./showFDtables --composite --output_TXT --output_binary
+        4.  
+        ./showFDtables --composite --output_TXT --output_binary
 
         du -b compositeTable.*
 
         11356 compositeTable.bin
         11356 compositeTable.txt
 
-        5.  ./showFDtables --composite --output_TXT --output_binary
+        5.  
+        ./showFDtables --composite --output_TXT --output_binary
 
         du -b compositeTable.*
         11356 compositeTable.bin
@@ -443,12 +461,12 @@ some files omitted
 1. Edge Cases (Misuse):
 
     Case 1.1:
-    If you made a typo so that input an invalid argument, a prompt will be shown and no tables will be shown:<div align="center"><img src="res\graphs\test_cases.1.1.png" width="800" height="30"></div>
+    If you made a typo so that input an invalid argument, a prompt will be shown and no tables will be shown:<div align="center"><img src="res\graphs\test_cases.1.1.png" width="800" height="40"></div>
     Case 1.2: 
-    If you mistakenly input an illegal positional argument (PID), you will be prompted an error message and no tables will be shown:<div align="center"><img src="res\graphs\test_cases.1.2.png" width="800" height="30"></div>
+    If you mistakenly input an illegal positional argument (PID), you will be prompted an error message and no tables will be shown:<div align="center"><img src="res\graphs\test_cases.1.2.png" width="800" height="40"></div>
     Case 1.3:
     If you want to see the output for the composite table, however, you forget to flag the ```
-    --composite``` argument, it will not show any tables or output anything and prompt an error message:<div align="center"><img src="res\graphs\test_cases.1.3.png" width="800" height="30"></div>
+    --composite``` argument, it will not show any tables or output anything and prompt an error message:<div align="center"><img src="res\graphs\test_cases.1.3.png" width="800" height="40"></div>
 
 
 2. Advanced Tests (From A2 handout and/or Video Demonstration):
@@ -489,14 +507,14 @@ some files omitted
 
     where 15 in this case is the value we want. (Here the the input is different because this test is not completed at the same time as previous tests. And the summary table could differ.)
 
-    Output:<div align="center"><img src="res\graphs\test_cases.2.4.png" width="800" height="40"></div>
+    Output:<div align="center"><img src="res\graphs\test_cases.2.4.png" width="800" height="60"></div>
 
     Case 2.5:
     Based on Case 2.4, if we adjust the threshold to a higher value, e.g.:
 
         ./showFDtables --summary --threshold=50
 
-    Output:<div align="center"><img src="res\graphs\test_cases.2.5.png" width="800" height="40"></div>
+    Output:<div align="center"><img src="res\graphs\test_cases.2.5.png" width="800" height="60"></div>
 
 
 **Disclaimer:**
