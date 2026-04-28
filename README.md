@@ -103,7 +103,7 @@ This main function receives command-line arguments and identifies positional arg
 
 **Information Flow:**
     <div align="center">
-    <img src="res\graphs\flow_char.png" width="800" height="600">
+    <img src="res\graphs\flow_chart.png" width="800" height="600">
     </div>
 
 
